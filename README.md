@@ -7,6 +7,7 @@ Type-agnostic partitioning for anything that can be indexed in Go - slices, arra
 ## Usage
 
 ```go
+    // bigList can be any type
 	for idxRange := range gopart.Partition(len(bigList), partitionSize) {
 	    bulkOperation(bigList[idxRange.Low:idxRange.High])
 	}
