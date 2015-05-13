@@ -3,7 +3,7 @@ package gopart
 // IdxRange specifies a single range. Low and High
 // are the indexes in the larger collection at which this
 // range begins and ends, respectively. Note that High
-// is exclusive, wheras Low is inclusive.
+// is exclusive, whereas Low is inclusive.
 type IdxRange struct {
 	Low, High int
 }
@@ -14,6 +14,10 @@ type IdxRange struct {
 // Consecutive index ranges are sent to the channel,
 // each of which is the same size. The final range may
 // be smaller than the others.
+//
+// For example, a collection with length 8 and
+// partition size 3 yields ranges:
+// {0, 3}, {3, 6}, {6, 8}
 //
 // This method should be used in a for...range loop.
 // No results will be returned if the partition size is
