@@ -1,11 +1,11 @@
 package gopart
 
-// IdxRange specifies a single range. Start and Stop
+// IdxRange specifies a single range. Low and High
 // are the indexes in the larger collection at which this
-// range begins and ends, respectively. Note that Stop
-// is exclusive, wheras Start is inclusive.
+// range begins and ends, respectively. Note that High
+// is exclusive, wheras Low is inclusive.
 type IdxRange struct {
-	Start, Stop int
+	Low, High int
 }
 
 // Partition enables type-agnostic partitioning
@@ -31,11 +31,11 @@ func Partition(collectionLen, partitionSize int) chan IdxRange {
 		numFullPartitions := collectionLen / partitionSize
 		var i int
 		for ; i < numFullPartitions; i++ {
-			c <- IdxRange{Start: i * partitionSize, Stop: (i + 1) * partitionSize}
+			c <- IdxRange{Low: i * partitionSize, High: (i + 1) * partitionSize}
 		}
 
-		if collectionLen%partitionSize != 0 {
-			c <- IdxRange{Start: i * partitionSize, Stop: collectionLen}
+		if collectionLen%partitionSize != 0 { // left over
+			c <- IdxRange{Low: i * partitionSize, High: collectionLen}
 		}
 
 		close(c)

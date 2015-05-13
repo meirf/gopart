@@ -37,3 +37,16 @@ func TestPartition(t *testing.T) {
 		}
 	}
 }
+
+func Benchmark100kPartitions(b *testing.B) { benchmarkParition(17*1e5+11, b) }
+func Benchmark10kPartitions(b *testing.B)  { benchmarkParition(17*1e4+11, b) }
+func Benchmark1kPartitions(b *testing.B)   { benchmarkParition(17*1e3+11, b) }
+func Benchmark100Partitions(b *testing.B)  { benchmarkParition(17*1e2+11, b) }
+func Benchmark10Partitions(b *testing.B)   { benchmarkParition(17*1e1+11, b) }
+
+func benchmarkParition(length int, b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		for _ = range Partition(length, 17) {
+		}
+	}
+}
