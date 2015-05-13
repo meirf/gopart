@@ -14,6 +14,7 @@ Type-agnostic partitioning for anything that can be indexed in Go - slices, arra
 	}
     ...
 ```
+[Full Executable Example](http://play.golang.org/p/WlVPpejxFV)
 
 ## Installation
 
