@@ -3,7 +3,7 @@ package gopart
 // IdxRange specifies a single range. Start and Stop
 // are the indexes in the larger collection at which this
 // range begins and ends, respectively. Note that Stop
-// is exclusive.
+// is exclusive, wheras Start is inclusive.
 type IdxRange struct {
 	Start, Stop int
 }
