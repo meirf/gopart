@@ -19,6 +19,10 @@ func TestPartition(t *testing.T) {
 		{13, 19, []IdxRange{{0, 13}}},
 		// nonpositive partiition size
 		{7, 0, nil},
+		// same size
+		{19, 19, []IdxRange{{0, 19}}},
+		// zero collection length
+		{0, 19, nil},
 	}
 
 	for _, tt := range partitionTests {
