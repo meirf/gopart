@@ -18,7 +18,7 @@ Type-agnostic partitioning for anything that can be indexed in Go - slices, arra
 
 ## Implementation
 
-The partitioning is done with a separate goroutine that passes the index ranges to a channel. This requires the use of a for...range loop, but adds concurrency and lowers memory usage of storing a slice of index ranges.
+The partitioning is done with a separate goroutine that passes the index ranges to a channel. This requires the use of a for...range loop, but adds concurrency and lowers memory usage (no slice of index ranges is stored anywhere).
 
 ## Installation
 
