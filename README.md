@@ -16,10 +16,6 @@ Type-agnostic partitioning for anything that can be indexed in Go - slices, arra
 ```
 [Full Executable Example](http://play.golang.org/p/WlVPpejxFV)
 
-## Implementation
-
-The partitioning is done with a separate goroutine that passes the index ranges to a channel. This requires the use of a for...range loop, but adds concurrency and lowers memory usage (no slice of index ranges is stored anywhere).
-
 ## Installation
 
     # install the library:
@@ -29,3 +25,7 @@ The partitioning is done with a separate goroutine that passes the index ranges 
     import (
         "github.com/meirf/gopart"
     )
+
+## Implementation
+
+The partitioning is done with a separate goroutine that passes the index ranges to a channel. This requires the use of a for...range loop, but adds concurrency and lowers memory usage (no slice of index ranges is stored anywhere).
